@@ -138,6 +138,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\ServerPacket.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ServerPacket.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Walnut\Walnut\Walnut-Headless.vcxproj">
       <Project>{96B2440B-023E-B2CF-0B4F-35C477590ED0}</Project>
     </ProjectReference>

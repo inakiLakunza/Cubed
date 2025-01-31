@@ -5,7 +5,7 @@ project "Cubed-Client"
    targetdir "bin/%{cfg.buildcfg}"
    staticruntime "off"
 
-   files { "src/**.h", "src/**.cpp" }
+   files { "Source/**.h", "Source/**.cpp" }
 
    includedirs
    {
@@ -13,21 +13,22 @@ project "Cubed-Client"
 
       "../Walnut/vendor/imgui",
       "../Walnut/vendor/glfw/include",
-
+      "../Walnut/vendor/glm",
+      "../Walnut/vendor/spdlog/include",
+      
       "../Walnut/Walnut/Source",
       "../Walnut/Walnut/Platform/GUI",
 
       "%{IncludeDir.VulkanSDK}",
-      "%{IncludeDir.glm}",
 
-      --Walnut-Networking
+      -- Walnut-Networking
       "../Walnut/Walnut-Modules/Walnut-Networking/Source",
       "../Walnut/Walnut-Modules/Walnut-Networking/vendor/GameNetworkingSockets/include"
    }
 
     links
     {
-        "Cubed-Common", 
+        "Cubed-Common",
         "Walnut"
     }
 
@@ -40,11 +41,11 @@ project "Cubed-Client"
       buildoptions { "/utf-8" }
 
       postbuildcommands 
-	  {
-	    '{COPY} "../%{WalnutNetworkingBinDir}/GameNetworkingSockets.dll" "%{cfg.targetdir}"',
-	    '{COPY} "../%{WalnutNetworkingBinDir}/libcrypto-3-x64.dll" "%{cfg.targetdir}"',
-	    '{COPY} "../%{WalnutNetworkingBinDir}/libprotobufd.dll" "%{cfg.targetdir}"',
-	  }
+      {
+        '{COPY} "../%{WalnutNetworkingBinDir}/GameNetworkingSockets.dll" "%{cfg.targetdir}"',
+        '{COPY} "../%{WalnutNetworkingBinDir}/libcrypto-3-x64.dll" "%{cfg.targetdir}"',
+        '{COPY} "../%{WalnutNetworkingBinDir}/libprotobufd.dll" "%{cfg.targetdir}"',
+      }
 
    filter "configurations:Debug"
       defines { "WL_DEBUG" }

@@ -5,13 +5,7 @@ project "Cubed-Server"
    targetdir "bin/%{cfg.buildcfg}"
    staticruntime "off"
 
-   project "App-Server-Headless"
-   kind "ConsoleApp"
-   language "C++"
-   cppdialect "C++20"
-   targetdir "bin/%{cfg.buildcfg}"
-   staticruntime "off"
-
+   
    files { "Source/**.h", "Source/**.cpp" }
 
    includedirs
@@ -29,7 +23,6 @@ project "Cubed-Server"
       -- Walnut-Networking
       "../Walnut/Walnut-Modules/Walnut-Networking/Source",
       "../Walnut/Walnut-Modules/Walnut-Networking/vendor/GameNetworkingSockets/include"
-
    }
 
    links
@@ -52,6 +45,7 @@ project "Cubed-Server"
    filter "system:windows"
       systemversion "latest"
       defines { "WL_PLATFORM_WINDOWS" }
+      buildoptions { "/utf-8" }
 
       postbuildcommands 
 	  {
